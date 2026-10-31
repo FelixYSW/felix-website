@@ -1,32 +1,10 @@
-# Felix Yap Soon Wei · Portfolio
+# Felix Yap, portfolio
 
-Personal portfolio site: projects, journey, skills and resume.
+Static site (HTML, CSS, a little JS) for GitHub Pages. No build step.
 
-Plain HTML, CSS and a little JavaScript. No build step and no dependencies.
+- `index.html`, `styles.css`: the page.
+- `screens.js`, `screens.css`: the Accessible Navigation and Nutrition Tracker screens. Both are native iOS apps, so the screens are rebuilt in HTML and CSS from the apps' source (colour tokens, layout, copy). Sample data only.
+- `assets/shots/`: screenshots of the running Qtic and Pet Genealogy Tracker apps, taken locally with demo data.
+- `resume.html`, `assets/Felix-Yap-Soon-Wei-Resume.pdf`: the resume.
 
-## Files
-
-| File | Purpose |
-|---|---|
-| `index.html` | The portfolio page |
-| `styles.css` | Styling and animations |
-| `script.js` | Interactions: typed text, hamster breeding demo, heatmap canvas, scroll effects |
-| `resume.html` | Printable A4 resume (also previewed on the site) |
-| `assets/Felix-Yap-Soon-Wei-Resume.pdf` | The downloadable resume |
-| `assets/photo.jpg` | **Optional.** Add a square portrait here and it appears on the site and the resume |
-
-## Run locally
-
-Open `index.html` in a browser, or serve the folder:
-
-```bash
-python3 -m http.server 8000
-```
-
-## Update the resume PDF
-
-Replace `assets/Felix-Yap-Soon-Wei-Resume.pdf` with the latest export. Keep the file name so the download button still works.
-
-## Deploy
-
-Enable GitHub Pages (Settings, Pages, deploy from the `main` branch, root folder).
+To publish: Settings, Pages, deploy from the `main` branch root.
