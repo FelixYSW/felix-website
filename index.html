@@ -1,10 +1,753 @@
-<html>
-    <head>
-        <title>Hello World</title>
-    </head>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Felix Yap Soon Wei · Software &amp; AI Engineer</title>
+  <meta name="description" content="Portfolio of Felix Yap Soon Wei, a Computer Science (AI) graduate from Asia Pacific University building web, iOS and AI products. Projects, experience and resume.">
+  <meta name="theme-color" content="#060913">
+  <meta property="og:title" content="Felix Yap Soon Wei · Software & AI Engineer">
+  <meta property="og:description" content="Web, iOS and AI projects built end to end. See my work and download my resume.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b6cff'/%3E%3Cstop offset='1' stop-color='%233ee6b0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='700' font-size='30' text-anchor='middle' fill='%2304101a'%3EF%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="aurora"><i></i><i></i><i></i></div>
+  <div class="grid-bg"></div>
+  <div class="spotlight" id="spotlight"></div>
 
-    <body>
-        <h1>Hello</h1>
-        <p1>Hello my world, you are my sunshine</p1>
-    </body>
+  <!-- ═════════ NAV ═════════ -->
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#home" class="logo"><b>F</b> Felix Yap</a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#journey">Journey</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="#contact" class="nav-cta">Let's talk</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+  <!-- ═════════ HERO ═════════ -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <span class="pill"><span class="dot"></span> Open to junior software &amp; AI roles · Kuala Lumpur / PJ</span>
+        <h1>Hi, I'm <span class="grad-text">Felix Yap</span><br>I build things that <span class="grad-text">work</span>.</h1>
+        <div class="typed-line"><span id="typed"></span><span class="caret"></span></div>
+        <p class="sub">Computer Science (AI) graduate from Asia Pacific University. I turn real problems into web, iOS and AI products, from a hamster-breeding tracker to an AR walking guide.</p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">See my projects <span>→</span></a>
+          <a href="#resume" class="btn btn-ghost">View resume</a>
+        </div>
+        <div class="hero-meta">
+          <div class="stat"><b data-count="5">0</b><span>Projects built</span></div>
+          <div class="stat"><b data-count="3.5" data-dec="1">0</b><span>CGPA</span></div>
+          <div class="stat"><b data-count="16">0</b><span>Week R&amp;D internship</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="float-chip a">swift · <em>ARKit</em></div>
+        <div class="float-chip b">firebase · <em>cloud functions</em></div>
+        <div class="float-chip c">yolo26 · <em>core ml</em></div>
+        <div class="phone" id="heroPhone">
+          <div class="screen"><div class="notch"></div><div data-ar></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="marquee"></div>
+  </div>
+
+  <!-- ═════════ JOURNEY ═════════ -->
+  <section class="section" id="journey">
+    <div class="container">
+      <span class="eyebrow reveal">The journey</span>
+      <h2 class="h2 reveal">Every project started with <span class="grad-text">a problem</span> and a few things going wrong.</h2>
+      <p class="lead reveal">I learn by building for real people. Here is the honest version of how each project went, including the parts that didn't work the first time.</p>
+
+      <div class="journey">
+        <aside class="about-card reveal">
+          <div class="avatar"><span>FY</span><img src="assets/photo.jpg" alt="Felix Yap Soon Wei" onerror="this.remove()"></div>
+          <h3>Felix Yap Soon Wei</h3>
+          <p>Computer Science graduate (Artificial Intelligence). I like owning a product end to end: the idea, the backend, the interface and the pipeline that ships it.</p>
+          <div class="facts">
+            <div>🎓 <span><b>APU</b> · BCS (Hons) AI · CGPA 3.5</span></div>
+            <div>💼 <span><b>REDtone</b> · R&amp;D Intern</span></div>
+            <div>📍 <span><b>Kuala Lumpur</b>, Malaysia</span></div>
+            <div>🗣 <span>English · 中文 · Bahasa Malaysia · 粤语</span></div>
+          </div>
+        </aside>
+
+        <div class="timeline">
+          <article class="tl-item reveal">
+            <div class="when">First app</div>
+            <h3>A family tree for ~200 hamsters</h3>
+            <p>My partner's hamster business grew to nearly 200 animals, and related hamsters can't be bred for at least three generations. I built a tracker so the answer is one tap away.</p>
+            <div class="ud">
+              <div class="down"><b>Down</b><span>I'd never built a real backend, and shipping an iOS app felt too heavy for a first project.</span></div>
+              <div class="up"><b>Up</b><span>I made it a web app that works great on our iPhones and discovered Firebase along the way.</span></div>
+            </div>
+          </article>
+          <article class="tl-item reveal">
+            <div class="when">Second app</div>
+            <h3>A ticketing platform that doesn't need code changes</h3>
+            <p>My dad's old e-ticket system had to be edited for every new event. He wanted something like Ticket2u: admins approve events, nobody touches the code.</p>
+            <div class="ud">
+              <div class="down"><b>Down</b><span>Payments, email verification and secret keys were all new, and a lot didn't work on the first try.</span></div>
+              <div class="up"><b>Up</b><span>Learned Billplz, the Google Maps API, OTP login, Secret Manager and a GitHub Actions CI/CD pipeline.</span></div>
+            </div>
+          </article>
+          <article class="tl-item reveal">
+            <div class="when">Group project</div>
+            <h3>Predicting solar output across Malaysia</h3>
+            <p>With my teammates, I helped turn a business idea into a map-based photovoltaic predictor powered by a model we trained ourselves.</p>
+            <div class="ud">
+              <div class="down"><b>Down</b><span>Colab's free tier kept cutting our training sessions short before they finished.</span></div>
+              <div class="up"><b>Up</b><span>We saved training progress to Google Drive and resumed each time until the model was done.</span></div>
+            </div>
+          </article>
+          <article class="tl-item reveal">
+            <div class="when">Final year project</div>
+            <h3>Making Malaysian walkways easier to navigate</h3>
+            <p>Walkways here aren't friendly to wheelchair and walker users, and no single app solved it. My first mobile app and my first AR project.</p>
+            <div class="ud">
+              <div class="down"><b>Down</b><span>My 14-year-old MacBook couldn't run the latest Xcode, so building for iPhone looked impossible.</span></div>
+              <div class="up"><b>Up</b><span>Every push to GitHub now tests the code and builds an IPA, which I sideload to my phone.</span></div>
+            </div>
+          </article>
+          <article class="tl-item reveal">
+            <div class="when">Right now</div>
+            <h3>A nutrition tracker I actually wanted</h3>
+            <p>I wanted to track my own intake without paying for an app. Others have AI cameras, but none suggest what to eat from the quota I have left, so I built that.</p>
+            <div class="ud">
+              <div class="up"><b>Up</b><span>A native SwiftUI app with an OpenAI-powered assistant that proposes changes and waits for my confirmation.</span></div>
+              <div class="down"><b>Next</b><span>Still building. The on-device photo models are the next chapter.</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ PROJECTS ═════════ -->
+  <section class="section" id="projects">
+    <div class="container">
+      <span class="eyebrow reveal">Selected work</span>
+      <h2 class="h2 reveal">Five projects you can <span class="grad-text">click through</span>.</h2>
+      <p class="lead reveal">Each project has the problem it solves, a tour of the screens, and how it works underneath. Tap the tabs, pick a profile, tap a hamster.</p>
+
+      <nav class="switcher reveal" aria-label="Jump to a project">
+        <a href="#p-pet"><i>🐹</i> Pet Genealogy</a>
+        <a href="#p-qtic"><i>🎟️</i> Event Ticketing</a>
+        <a href="#p-pv"><i>☀️</i> Solar Predictor</a>
+        <a href="#p-nav"><i>🦽</i> Accessible Navigation</a>
+        <a href="#p-nutrition"><i>🥗</i> Nutrition Tracker</a>
+      </nav>
+
+      <!-- ══════════ 1 · PET GENEALOGY ══════════ -->
+      <article class="proj" id="p-pet">
+        <header class="ph reveal">
+          <div class="p-num">01 · My first app</div>
+          <h3 class="p-title">Pet Breeder Genealogy Tracker</h3>
+          <div class="p-tag">Progressive web app · Firebase</div>
+          <p class="p-desc">A hamster business grew to almost 200 animals, and related hamsters must not be bred for at least three generations. This app records every hamster, traces their bloodlines and answers one question instantly: can these two breed?</p>
+        </header>
+        <div class="glance reveal">
+          <div><small class="pr">Problem</small><p>About 200 hamsters, and a three-generation breeding rule that is impossible to track by memory.</p></div>
+          <div><small class="so">Solution</small><p>A mobile-first web app that stores every hamster, links parents and checks any pair automatically.</p></div>
+          <div><small class="re">Result</small><p>Works on iPhones with no App Store release, with real-time sync so everyone sees the same data.</p></div>
+        </div>
+
+        <div class="explorer reveal" data-explorer style="--glow: rgba(255,111,177,.22)">
+          <div class="ex-tabs">
+            <button class="ex-tab active"><b><i>1</i> Your colony</b><span>Every hamster in one searchable list, with status at a glance.</span><u class="bar"></u></button>
+            <button class="ex-tab"><b><i>2</i> Trace the bloodline</b><span>Tap any hamster to light up its ancestors in the family tree.</span><u class="bar"></u></button>
+            <button class="ex-tab"><b><i>3</i> Can they breed?</b><span>Pick two hamsters. The app checks 3 generations and answers instantly.</span><u class="bar"></u></button>
+          </div>
+          <div class="ex-stage">
+            <div class="phone lg">
+              <div class="screen">
+                <div class="notch"></div>
+                <!-- colony -->
+                <div class="scr active">
+                  <div class="u-row"><div><div class="u-h">Sweet Pawz colony</div><div class="u-sub">~200 hamsters · synced live</div></div><span class="u-chip">PWA</span></div>
+                  <div class="u-search">🔍 Search name or ID…</div>
+                  <div class="h-list">
+                    <div class="h-card"><i style="--c:#ffc857">🐹</i><div><b>Pip</b><small>Syrian · male · gen 0</small></div><em class="ok">Breeder</em></div>
+                    <div class="h-card"><i style="--c:#ff9ecb">🐹</i><div><b>Mochi</b><small>Syrian · female · gen 0</small></div><em class="ok">Breeder</em></div>
+                    <div class="h-card"><i style="--c:#8bd3ff">🐹</i><div><b>Biscuit</b><small>Pip × Mochi · gen 1</small></div><em class="wait">Growing</em></div>
+                    <div class="h-card"><i style="--c:#c9a6ff">🐹</i><div><b>Waffle</b><small>Nugget × Daisy · gen 1</small></div><em class="ok">Breeder</em></div>
+                    <div class="h-card"><i style="--c:#a6f0c6">🐹</i><div><b>Peanut</b><small>Biscuit × Waffle · gen 2</small></div><em class="sold">Sold</em></div>
+                  </div>
+                  <div class="u-btn">＋ Add hamster</div>
+                </div>
+                <!-- tree -->
+                <div class="scr">
+                  <div class="u-h">Family tree</div>
+                  <div class="u-sub">Tap a hamster to highlight its ancestors.</div>
+                  <svg class="tree-svg" id="tree1" viewBox="0 0 470 300"></svg>
+                  <div class="u-card" id="treeInfo1"></div>
+                </div>
+                <!-- checker -->
+                <div class="scr">
+                  <div class="u-h">Breeding check</div>
+                  <div class="u-sub">Related within 3 generations? Then no.</div>
+                  <div class="sel-wrap"><label>Male<select id="selA"></select></label><span>×</span><label>Female<select id="selB"></select></label></div>
+                  <svg class="tree-svg" id="tree2" viewBox="0 0 470 300"></svg>
+                  <div class="verdict" id="verdict"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flow reveal">
+          <h5>How it works</h5>
+          <div class="steps">
+            <div class="step" style="--n:0"><b>Record</b><p>Add each hamster with its details and photo.</p></div>
+            <div class="step" style="--n:1"><b>Link parents</b><p>Connect each hamster to its mother and father.</p></div>
+            <div class="step" style="--n:2"><b>Check pairs</b><p>The app walks up 3 generations and looks for shared ancestors.</p></div>
+            <div class="step" style="--n:3"><b>Breed safely</b><p>A clear ✓ or ✕ before any pairing is made.</p></div>
+          </div>
+          <div class="arch-note"><span>📱 iPhone web app (PWA)</span><em>⇄ real-time sync ⇄</em><span>🔥 Firebase Firestore</span><em>🔒</em><span>Device authorization</span></div>
+        </div>
+        <div class="ph-foot reveal">
+          <div class="chips"><span class="chip">JavaScript</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">Firebase</span><span class="chip">Firestore</span><span class="chip">PWA</span></div>
+          <span class="link-btn muted">🔒 Private repository · demo on request</span>
+        </div>
+      </article>
+
+      <!-- ══════════ 2 · QTIC ══════════ -->
+      <article class="proj" id="p-qtic">
+        <header class="ph reveal">
+          <div class="p-num">02 · Personal project</div>
+          <h3 class="p-title">Qtic · Event Ticketing</h3>
+          <div class="p-tag">Full-stack · Serverless · Payments</div>
+          <p class="p-desc">A multi-role ticketing platform in the spirit of Ticket2u. Organizers submit events, admins approve them, customers pay and receive QR tickets, and gate staff scan them. New events never need a code change.</p>
+        </header>
+        <div class="glance reveal">
+          <div><small class="pr">Problem</small><p>The old e-ticket system had to be edited by hand for every new event.</p></div>
+          <div><small class="so">Solution</small><p>Four roles on one platform. Admins approve events from a dashboard, so no developer is involved.</p></div>
+          <div><small class="re">Result</small><p>Payments, OTP sign-up, email notifications and automated deploys, all in one serverless stack.</p></div>
+        </div>
+
+        <div class="explorer wide reveal" data-explorer style="--glow: rgba(40,215,240,.2)">
+          <div class="ex-tabs">
+            <button class="ex-tab active"><b><i>🎟</i> Customer</b><span>Browse events, see the venue on a map, and pay securely with Billplz.</span><u class="bar"></u></button>
+            <button class="ex-tab"><b><i>🎤</i> Organizer</b><span>Sign up with an email OTP, then submit an event for review.</span><u class="bar"></u></button>
+            <button class="ex-tab"><b><i>🛡</i> Admin</b><span>Approve or reject organizers and events. Try the buttons.</span><u class="bar"></u></button>
+            <button class="ex-tab"><b><i>📷</i> Gate scanner</b><span>Scan a QR ticket at the door and get an instant verdict.</span><u class="bar"></u></button>
+          </div>
+          <div class="ex-stage">
+            <div class="browser lg">
+              <div class="bar"><i></i><i></i><i></i><span id="qUrl">qtic.app/events</span></div>
+              <div class="b-body">
+                <!-- customer -->
+                <div class="scr active">
+                  <div class="u-row"><div class="u-h">Upcoming events</div><span class="u-chip">Customer</span></div>
+                  <div class="q-split">
+                    <div class="q-events">
+                      <div class="q-ev"><div class="q-img" style="--a:#5b3df0;--b:#28d7f0"></div><div><b>Night Market Live</b><small>Sat · 7:30 PM · Bukit Jalil</small><span class="u-chip">from RM 45</span></div></div>
+                      <div class="q-ev"><div class="q-img" style="--a:#ff6fb1;--b:#ffc857"></div><div><b>Indie Fest KL</b><small>Sun · 4:00 PM · Bangsar</small><span class="u-chip">from RM 60</span></div></div>
+                      <div class="q-map"><svg viewBox="0 0 240 90"><rect width="240" height="90" fill="#0f1a38"/><g stroke="#243566" stroke-width="7" fill="none"><path d="M0 60H240M70 0V90M170 0V90M0 25L240 40"/></g><g fill="#16224a"><rect x="80" y="8" width="38" height="20" rx="4"/><rect x="180" y="52" width="40" height="26" rx="4"/></g><g transform="translate(122 52)"><path d="M0 0c-6-9-9-13-9-18a9 9 0 1 1 18 0c0 5-3 9-9 18z" fill="#ff6fb1"/><circle cy="-18" r="3.5" fill="#fff"/></g></svg><small>📍 Venue on Google Maps</small></div>
+                    </div>
+                    <div class="q-cart">
+                      <b>Checkout</b>
+                      <div class="u-row"><span>General × 2</span><span>RM 90</span></div>
+                      <div class="u-row"><span>Processing fee</span><span>RM 3</span></div>
+                      <hr>
+                      <div class="u-row"><b>Total</b><b>RM 93</b></div>
+                      <div class="u-btn">Pay with Billplz</div>
+                      <small>FPX / cards · confirmed server-side</small>
+                    </div>
+                  </div>
+                </div>
+                <!-- organizer -->
+                <div class="scr">
+                  <div class="u-row"><div class="u-h">Become an organizer</div><span class="u-chip">Organizer</span></div>
+                  <div class="q-split">
+                    <div class="q-form">
+                      <label>Email<input value="events@example.com" readonly></label>
+                      <small>Enter the 6-digit code we emailed you</small>
+                      <div class="otp"><i>4</i><i>8</i><i>2</i><i>1</i><i></i><i></i></div>
+                      <div class="u-btn">Verify email</div>
+                    </div>
+                    <div class="q-form">
+                      <b>New event</b>
+                      <label>Title<input value="Night Market Live" readonly></label>
+                      <label>Venue<input value="Bukit Jalil, KL" readonly></label>
+                      <div class="u-row"><span class="u-chip">General RM 45</span><span class="u-chip">VIP RM 120</span></div>
+                      <div class="u-btn">Submit for review</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- admin -->
+                <div class="scr">
+                  <div class="u-row"><div class="u-h">Admin dashboard</div><span class="u-chip">Admin</span></div>
+                  <div class="q-split">
+                    <div class="q-queue" data-queue>
+                      <b>Organizer applications</b>
+                      <div class="q-item"><span>Aisha · Indie Fest KL</span><em class="st pending">PENDING</em><button data-act>Approve</button></div>
+                      <div class="q-item"><span>Daniel · Night Market</span><em class="st pending">PENDING</em><button data-act>Approve</button></div>
+                    </div>
+                    <div class="q-queue" data-queue>
+                      <b>Events awaiting review</b>
+                      <div class="q-item"><span>Night Market Live 2026</span><em class="st pending">PENDING</em><button data-act>Approve</button></div>
+                      <div class="q-item"><span>Indie Fest KL</span><em class="st ok">LIVE</em><button data-act class="done">Undo</button></div>
+                    </div>
+                  </div>
+                  <small class="u-note">Approvals run through Cloud Functions, which also email the organizer.</small>
+                </div>
+                <!-- scanner -->
+                <div class="scr">
+                  <div class="u-row"><div class="u-h">Gate scanner</div><span class="u-chip">Scanner</span></div>
+                  <div class="q-scan">
+                    <div class="viewfinder"><svg viewBox="0 0 21 21" shape-rendering="crispEdges" id="qr2"></svg><i class="c tl"></i><i class="c tr"></i><i class="c bl"></i><i class="c br"></i><u class="beam"></u></div>
+                    <div class="q-result"><b>✓ Valid ticket</b><span>Admit 1 · General · Night Market Live</span><small>Scanned 183 of 248</small></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flow reveal">
+          <h5>The life of an event</h5>
+          <div class="steps seven">
+            <div class="step" style="--n:0"><b>Apply</b><p>Organizer signs up</p></div>
+            <div class="step" style="--n:1"><b>Verify</b><p>Email OTP code</p></div>
+            <div class="step" style="--n:2"><b>Approve</b><p>Admin reviews</p></div>
+            <div class="step" style="--n:3"><b>Go live</b><p>Event is published</p></div>
+            <div class="step" style="--n:4"><b>Pay</b><p>Billplz checkout</p></div>
+            <div class="step" style="--n:5"><b>Ticket</b><p>QR e-ticket emailed</p></div>
+            <div class="step" style="--n:6"><b>Scan</b><p>Validated at the gate</p></div>
+          </div>
+        </div>
+
+        <div class="arch reveal">
+          <h5>Under the hood</h5>
+          <svg viewBox="0 0 820 300" role="img" aria-label="Architecture diagram">
+            <defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#28d7f0"/></marker></defs>
+            <g class="a-box"><rect x="10" y="100" width="150" height="90" rx="16"/><text x="85" y="140">React app</text><text class="s" x="85" y="162">Vite · Tailwind</text></g>
+            <g class="a-box fb"><rect x="230" y="30" width="270" height="240" rx="22"/><text class="t" x="365" y="58">Firebase</text></g>
+            <g class="a-box in"><rect x="252" y="76" width="226" height="40" rx="10"/><text x="365" y="101">Auth · email OTP, roles</text></g>
+            <g class="a-box in"><rect x="252" y="124" width="226" height="40" rx="10"/><text x="365" y="149">Firestore · rules + tests</text></g>
+            <g class="a-box in"><rect x="252" y="172" width="226" height="40" rx="10"/><text x="365" y="197">Cloud Functions</text></g>
+            <g class="a-box in sec"><rect x="252" y="220" width="226" height="38" rx="10"/><text x="365" y="244">🔐 Secret Manager (API keys)</text></g>
+            <g class="a-box"><rect x="580" y="26" width="140" height="56" rx="14"/><text x="650" y="60">💳 Billplz</text></g>
+            <g class="a-box"><rect x="580" y="100" width="140" height="56" rx="14"/><text x="650" y="134">🗺 Google Maps</text></g>
+            <g class="a-box"><rect x="580" y="174" width="140" height="56" rx="14"/><text x="650" y="208">✉ Email service</text></g>
+            <g class="a-box gh"><rect x="580" y="246" width="230" height="44" rx="14"/><text x="695" y="273">⚙ GitHub Actions · CI/CD</text></g>
+            <g class="a-lines"><path d="M160 145H230" marker-end="url(#ah)"/><path d="M478 192C530 192 540 54 580 54" marker-end="url(#ah)"/><path d="M478 192C530 192 540 128 580 128" marker-end="url(#ah)"/><path d="M478 192C520 192 540 202 580 202" marker-end="url(#ah)"/><path class="dep" d="M580 268H500" marker-end="url(#ah)"/></g>
+          </svg>
+        </div>
+        <div class="ph-foot reveal">
+          <div class="chips"><span class="chip">React</span><span class="chip">Vite</span><span class="chip">Tailwind</span><span class="chip">Firebase</span><span class="chip">Cloud Functions</span><span class="chip">Billplz</span><span class="chip">Google Maps</span><span class="chip">CI/CD</span></div>
+          <span class="link-btn muted">🔒 Private repository · demo on request</span>
+        </div>
+      </article>
+
+      <!-- ══════════ 3 · PV ══════════ -->
+      <article class="project" id="p-pv">
+        <div class="p-visual reveal" style="--glow: rgba(255,200,87,.24)">
+          <div class="pv-wrap">
+            <canvas id="pv" width="1000" height="680"></canvas>
+            <div class="pv-legend">low <i></i> high</div>
+            <div class="pv-hud"><span>XGBoost · runs in the browser</span><span>8,760 h of weather</span><span>canvas · viewport culling</span></div>
+          </div>
+        </div>
+        <div class="reveal" style="--d:.1s">
+          <div class="p-num">03 · Group project</div>
+          <h3 class="p-title">Malaysia Photovoltaic Energy Predictor</h3>
+          <div class="p-tag">Machine learning · GIS · TypeScript</div>
+          <p class="p-desc">A map-based web app that predicts solar energy yield across Malaysia. A model trained by our team runs inside the browser, so predictions need no backend.</p>
+          <ul class="p-points">
+            <li>In-browser XGBoost inference over 8,760 hours of weather data to predict solar yield.</li>
+            <li>Custom HTML5 Canvas renderer with viewport culling, so large power grids and AHP-scored heatmaps stay smooth.</li>
+            <li>Trained on Google Colab. When free-tier sessions kept dying, we checkpointed progress to Drive and resumed.</li>
+            <li>Google Maps integration to explore locations on the map.</li>
+          </ul>
+          <div class="chips"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">XGBoost</span><span class="chip">Google Maps</span><span class="chip">Canvas</span><span class="chip">Google Colab</span></div>
+          <div class="p-links"><span class="link-btn muted">🎓 Academic group project</span></div>
+        </div>
+      </article>
+
+      <!-- ══════════ 4 · ACCESSIBLE NAVIGATION ══════════ -->
+      <article class="proj" id="p-nav">
+        <header class="ph reveal">
+          <div class="p-num">04 · Final year project</div>
+          <h3 class="p-title">Accessible Navigation with CV and AR</h3>
+          <div class="p-tag">Computer vision · AR · iOS</div>
+          <p class="p-desc">A pedestrian app for wheelchair, walker and cane users that cares what the pavement is like, not just which way to turn. It plans around barriers, spots hazards through the camera, and draws the route onto the ground in AR.</p>
+        </header>
+        <div class="glance reveal">
+          <div><small class="pr">Problem</small><p>Walkways in Malaysia are rarely friendly to mobility aids, and no single app covers routing, hazards and guidance.</p></div>
+          <div><small class="so">Solution</small><p>Barrier-aware routing, on-device hazard detection and AR guidance, together in one iOS app.</p></div>
+          <div><small class="re">Result</small><p>Built and tested on a real iPhone through a CI pipeline, even though my MacBook can't run the latest Xcode.</p></div>
+        </div>
+
+        <div class="explorer reveal" data-explorer style="--glow: rgba(139,108,255,.26)">
+          <div class="ex-tabs">
+            <button class="ex-tab active"><b><i>1</i> Pick a profile</b><span>Wheelchair, walker, cane or none. Each sends different limits to the router.</span><u class="bar"></u></button>
+            <button class="ex-tab"><b><i>2</i> Plan the route</b><span>Routes are screened against OpenStreetMap barriers, with the pavement-versus-road split.</span><u class="bar"></u></button>
+            <button class="ex-tab"><b><i>3</i> Follow it in AR</b><span>Chevrons sit on the ground in the camera view, with a compass fallback.</span><u class="bar"></u></button>
+            <button class="ex-tab"><b><i>4</i> Spot hazards live</b><span>A YOLO model runs on the phone at 10 Hz and warns by voice.</span><u class="bar"></u></button>
+          </div>
+          <div class="ex-stage">
+            <div class="phone lg">
+              <div class="screen">
+                <div class="notch"></div>
+                <div class="scr active">
+                  <div class="u-h">Who is walking?</div>
+                  <div class="u-sub">Tap a profile to see how the route changes.</div>
+                  <div class="prof-grid" id="profGrid">
+                    <button class="on" data-p="none"><i>🙂</i>No aid</button>
+                    <button data-p="wheelchair"><i>🦽</i>Wheelchair</button>
+                    <button data-p="walker"><i>🚶</i>Walker</button>
+                    <button data-p="cane"><i>🦯</i>Cane</button>
+                  </div>
+                  <div class="rules" id="rules"></div>
+                  <small class="u-note">Barrier checks use OpenStreetMap data, with severity set per aid.</small>
+                </div>
+                <div class="scr">
+                  <svg class="mapsvg" viewBox="0 0 252 290" preserveAspectRatio="xMidYMid slice">
+                    <rect width="252" height="290" fill="#0d1630"/>
+                    <g fill="#16224a"><rect x="10" y="30" width="60" height="50" rx="6"/><rect x="95" y="20" width="50" height="70" rx="6"/><rect x="170" y="35" width="70" height="45" rx="6"/><rect x="10" y="110" width="60" height="60" rx="6"/><rect x="95" y="120" width="50" height="50" rx="6"/><rect x="170" y="110" width="70" height="70" rx="6"/><rect x="10" y="205" width="70" height="60" rx="6"/><rect x="105" y="200" width="45" height="65" rx="6"/><rect x="175" y="210" width="65" height="55" rx="6"/></g>
+                    <g stroke="#243566" stroke-width="9" fill="none"><path d="M0 95H252M0 190H252M82 0V290M158 0V290"/></g>
+                    <path d="M158 262V190H82V95H158V48" stroke="#ffffff" stroke-opacity=".25" stroke-width="5" fill="none" stroke-dasharray="3 7" stroke-linecap="round"/>
+                    <path class="rt" d="M82 262V190H158V48" stroke="#3ee6b0" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <g><circle cx="120" cy="190" r="9" fill="#ff6fb1"/><text x="120" y="194" text-anchor="middle" font-size="11" font-weight="700" fill="#240a18">!</text><circle cx="82" cy="140" r="9" fill="#ff6fb1"/><text x="82" y="144" text-anchor="middle" font-size="11" font-weight="700" fill="#240a18">!</text></g>
+                    <circle cx="82" cy="262" r="7" fill="#fff" stroke="#3ee6b0" stroke-width="3"/>
+                    <g transform="translate(158 48)"><path d="M0 0c-8-12-12-17-12-23a12 12 0 1 1 24 0c0 6-4 11-12 23z" fill="#ff6fb1"/><circle cy="-23" r="4.5" fill="#fff"/></g>
+                    <g font-family="Arial,sans-serif" font-size="9" font-weight="700"><rect x="96" y="222" width="78" height="18" rx="9" fill="#3ee6b0"/><text x="135" y="234.500" text-anchor="middle" fill="#04101a">11 min · 760 m</text><rect x="168" y="150" width="76" height="18" rx="9" fill="rgba(255,255,255,.14)"/><text x="206" y="162.500" text-anchor="middle" fill="#cfd8f0">14 min · 940 m</text></g>
+                    <g font-family="Arial,sans-serif" font-size="8" fill="#ff9ec9"><text x="128" y="183">steps</text><text x="26" y="143">steps</text></g>
+                  </svg>
+                  <div class="u-card sheet">
+                    <div class="u-row"><b>Barrier check</b><span class="u-chip">OSM</span></div>
+                    <div class="chk">✓ Steps avoided on this route</div>
+                    <div class="chk">✓ 82% on pavement</div>
+                    <div class="split"><i style="width:82%"></i></div>
+                    <small>18% shares the road with traffic</small>
+                  </div>
+                </div>
+                <div class="scr nopad"><div data-ar></div></div>
+                <div class="scr nopad">
+                  <svg class="fill" viewBox="0 0 252 520" preserveAspectRatio="xMidYMid slice">
+                    <defs><linearGradient id="hz-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b2a5e"/><stop offset="1" stop-color="#8aa0c9"/></linearGradient></defs>
+                    <rect width="252" height="520" fill="url(#hz-sky)"/>
+                    <polygon points="0,250 252,250 252,520 0,520" fill="#2a3148"/>
+                    <polygon points="0,520 0,252 110,252 28,520" fill="#59607a"/>
+                    <polygon points="252,520 252,252 142,252 224,520" fill="#59607a"/>
+                    <g class="hzb"><rect x="30" y="330" width="86" height="44" rx="4" fill="rgba(255,111,177,.12)" stroke="#ff6fb1" stroke-width="2" stroke-dasharray="6 4"/><rect x="30" y="314" width="92" height="16" rx="3" fill="#ff6fb1"/><text x="35" y="326" font-family="monospace" font-size="9.500" font-weight="700" fill="#1a0614">pothole 0.87</text></g>
+                    <g class="hzb" style="animation-delay:-.8s"><rect x="150" y="396" width="82" height="48" rx="4" fill="rgba(255,200,87,.12)" stroke="#ffc857" stroke-width="2" stroke-dasharray="6 4"/><rect x="150" y="380" width="98" height="16" rx="3" fill="#ffc857"/><text x="155" y="392" font-family="monospace" font-size="9.500" font-weight="700" fill="#241a04">uneven 0.74</text></g>
+                    <g class="hzb" style="animation-delay:-1.6s"><rect x="104" y="262" width="52" height="54" rx="4" fill="rgba(40,215,240,.12)" stroke="#28d7f0" stroke-width="2" stroke-dasharray="6 4"/><rect x="88" y="246" width="96" height="16" rx="3" fill="#28d7f0"/><text x="93" y="258" font-family="monospace" font-size="9.500" font-weight="700" fill="#04161a">obstruction 0.91</text></g>
+                    <g><rect x="14" y="44" width="224" height="40" rx="14" fill="rgba(8,12,26,.84)" stroke="rgba(255,255,255,.14)"/><text x="30" y="68" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#fff">⚠ Pothole ahead, slightly left</text></g>
+                    <g><rect x="22" y="466" width="208" height="34" rx="17" fill="rgba(8,12,26,.84)" stroke="rgba(255,255,255,.14)"/><g font-family="Arial,sans-serif" font-size="8.500" fill="#e8ecf6"><circle cx="40" cy="483" r="4" fill="#ff6fb1"/><text x="48" y="486">Pothole</text><circle cx="94" cy="483" r="4" fill="#8bd3ff"/><text x="102" y="486">Slippery</text><circle cx="152" cy="483" r="4" fill="#ffc857"/><text x="160" y="486">Uneven</text><circle cx="200" cy="483" r="4" fill="#28d7f0"/><text x="208" y="486">Block</text></g></g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flow reveal">
+          <h5>From camera frame to voice warning</h5>
+          <div class="steps">
+            <div class="step" style="--n:0"><b>Camera frame</b><p>ARKit or the plain camera preview supplies images.</p></div>
+            <div class="step" style="--n:1"><b>YOLO26n · Core ML</b><p>On-device detection at 10 Hz in four classes.</p></div>
+            <div class="step" style="--n:2"><b>Filter</b><p>Low-confidence and switched-off classes are dropped.</p></div>
+            <div class="step" style="--n:3"><b>Warn</b><p>Boxes on screen and a spoken cue, separate from turn cues.</p></div>
+          </div>
+        </div>
+        <div class="flow reveal">
+          <h5>From search to AR guidance</h5>
+          <div class="steps">
+            <div class="step" style="--n:0"><b>Search</b><p>Google Places finds the destination.</p></div>
+            <div class="step" style="--n:1"><b>Route</b><p>OpenRouteService on OpenStreetMap, with Google as fallback.</p></div>
+            <div class="step" style="--n:2"><b>Screen barriers</b><p>Overpass checks steps, kerbs and rough surfaces per aid.</p></div>
+            <div class="step" style="--n:3"><b>Guide in AR</b><p>ARCore Geospatial anchors chevrons to real-world points.</p></div>
+          </div>
+        </div>
+        <div class="ph-foot reveal">
+          <div class="p-metrics">
+            <div class="metric"><b>4</b><span>mobility profiles</span></div>
+            <div class="metric"><b>10 Hz</b><span>hazard detection</span></div>
+            <div class="metric"><b>14,601</b><span>mapped footways in the KL study area</span></div>
+          </div>
+          <div class="chips"><span class="chip">React Native</span><span class="chip">Swift</span><span class="chip">ARKit</span><span class="chip">ARCore</span><span class="chip">Core ML</span><span class="chip">YOLO26</span><span class="chip">GitHub Actions</span></div>
+          <a class="link-btn" href="https://github.com/FelixYSW/Accessible-Navigation" target="_blank" rel="noopener">View on GitHub ↗</a>
+        </div>
+      </article>
+
+      <!-- ══════════ 5 · NUTRITION TRACKER ══════════ -->
+      <article class="proj" id="p-nutrition">
+        <header class="ph reveal">
+          <div class="p-num">05 · Currently building</div>
+          <h3 class="p-title">Nutrition Tracker</h3>
+          <div class="p-tag">Native iOS · AI assistant</div>
+          <p class="p-desc">A native iPhone app for tracking calories and macros against daily ranges. I wanted a tracker without a subscription, and none of the apps I tried could tell me what to eat with the allowance I had left. So the app has an assistant that can.</p>
+        </header>
+        <div class="glance reveal">
+          <div><small class="pr">Problem</small><p>Tracking apps cost money, and none suggest what to eat from what you have left today.</p></div>
+          <div><small class="so">Solution</small><p>Daily ranges for calories and macros, plus an assistant that proposes meals and logs them only after I confirm.</p></div>
+          <div><small class="re">Result</small><p>Data stays on the phone. Only the optional assistant uses the internet.</p></div>
+        </div>
+
+        <div class="explorer reveal" data-explorer style="--glow: rgba(62,230,176,.22)">
+          <div class="ex-tabs">
+            <button class="ex-tab active"><b><i>1</i> Today</b><span>Rings and range bands show under, within or over for each nutrient.</span><u class="bar"></u></button>
+            <button class="ex-tab"><b><i>2</i> Add a meal</b><span>Log by hand or barcode. Composite foods are built from ingredients.</span><u class="bar"></u></button>
+            <button class="ex-tab"><b><i>3</i> Ask the assistant</b><span>It suggests food from what's left, and nothing is saved until you confirm.</span><u class="bar"></u></button>
+            <button class="ex-tab"><b><i>4</i> Trends</b><span>Daily, weekly and monthly charts against your target band.</span><u class="bar"></u></button>
+          </div>
+          <div class="ex-stage">
+            <div class="phone lg">
+              <div class="screen">
+                <div class="notch"></div>
+                <div class="scr active">
+                  <div class="u-row"><div class="u-h">Today</div><span class="u-chip">Fri 31 Oct</span></div>
+                  <div class="rings" id="rings">
+                    <svg viewBox="0 0 150 150">
+                      <circle class="track" cx="75" cy="75" r="62"/><circle class="c1" id="r1" cx="75" cy="75" r="62" stroke-dasharray="389.6" stroke-dashoffset="389.6"/>
+                      <circle class="track" cx="75" cy="75" r="48"/><circle class="c2" id="r2" cx="75" cy="75" r="48" stroke-dasharray="301.6" stroke-dashoffset="301.6"/>
+                      <circle class="track" cx="75" cy="75" r="34"/><circle class="c3" id="r3" cx="75" cy="75" r="34" stroke-dasharray="213.6" stroke-dashoffset="213.6"/>
+                    </svg>
+                    <div class="center"><div><b>1,380</b><small>of 1,500–1,900 kcal</small></div></div>
+                  </div>
+                  <div class="macros">
+                    <div class="mc"><span>Protein</span><div class="rng"><i class="band" style="left:55%;width:30%"></i><b style="left:40%"></b></div><em class="under">under</em></div>
+                    <div class="mc"><span>Carbs</span><div class="rng"><i class="band" style="left:45%;width:30%"></i><b style="left:62%"></b></div><em class="within">within</em></div>
+                    <div class="mc"><span>Fat</span><div class="rng"><i class="band" style="left:35%;width:30%"></i><b style="left:78%"></b></div><em class="over">over</em></div>
+                    <div class="mc"><span>Fibre</span><div class="rng"><i class="band" style="left:50%;width:35%"></i><b style="left:58%"></b></div><em class="within">within</em></div>
+                  </div>
+                  <div class="meals">
+                    <div class="u-row"><span>🍳 Breakfast · Roti canai</span><b>420</b></div>
+                    <div class="u-row"><span>🍗 Lunch · Chicken rice</span><b>560</b></div>
+                    <div class="u-row"><span>🥤 Snack · Milo &amp; biscuits</span><b>400</b></div>
+                  </div>
+                  <small class="u-note">Under is shown calmly, since that's normal mid-day.</small>
+                </div>
+                <div class="scr">
+                  <div class="u-h">Add meal</div>
+                  <div class="seg3"><span>📷 Take photo<small>in development</small></span><span>🖼 Choose photo<small>in development</small></span><span class="on">▦ Scan barcode</span></div>
+                  <div class="draft">
+                    <div class="d-item"><div><b>Nasi lemak</b><small>composite · 3 ingredients</small></div><div class="step-q"><button>−</button><span>1</span><button>＋</button></div></div>
+                    <div class="d-sub"><span>Rice</span><span>Sambal</span><span>Egg</span></div>
+                    <div class="d-item"><div><b>Milo 3-in-1</b><small>✓ Open Food Facts · barcode</small></div><div class="step-q"><button>−</button><span>1</span><button>＋</button></div></div>
+                  </div>
+                  <div class="u-card u-row"><span>Draft total</span><b>742 kcal</b></div>
+                  <div class="u-btn">Save meal</div>
+                </div>
+                <div class="scr">
+                  <div class="u-row"><div class="u-h">Assistant</div><span class="u-chip">GPT-6 Luna</span></div>
+                  <div class="chat" id="chat"></div>
+                </div>
+                <div class="scr">
+                  <div class="u-row"><div class="u-h">Trends</div><div class="seg-mini"><span class="on">Daily</span><span>Weekly</span><span>Monthly</span></div></div>
+                  <svg class="chart" viewBox="0 0 240 170">
+                    <rect x="8" y="42" width="224" height="46" rx="6" fill="rgba(62,230,176,.14)" stroke="rgba(62,230,176,.4)" stroke-dasharray="4 4"/>
+                    <text x="12" y="38" font-size="8" fill="#3ee6b0" font-family="monospace">target band</text>
+                    <g id="bars" fill="url(#bg)"></g>
+                    <defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#28d7f0"/><stop offset="1" stop-color="#8b6cff"/></linearGradient></defs>
+                    <g font-size="8" fill="#98a4c2" font-family="Arial" text-anchor="middle"><text x="26" y="164">Mon</text><text x="59" y="164">Tue</text><text x="92" y="164">Wed</text><text x="125" y="164">Thu</text><text x="158" y="164">Fri</text><text x="191" y="164">Sat</text><text x="219" y="164">Sun</text></g>
+                  </svg>
+                  <div class="u-card"><div class="u-row"><span>Weekly average</span><b>1,742 kcal</b></div><div class="u-row"><span>Days in range</span><b>5 of 7</b></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flow reveal">
+          <h5>How the assistant stays safe</h5>
+          <div class="steps six">
+            <div class="step" style="--n:0"><b>You ask</b><p>“What should I eat for dinner?”</p></div>
+            <div class="step" style="--n:1"><b>Context</b><p>Targets, today's log and a 14-day summary are sent.</p></div>
+            <div class="step" style="--n:2"><b>GPT-6 Luna</b><p>Responses API with function tools and web search.</p></div>
+            <div class="step" style="--n:3"><b>Draft</b><p>Every proposed change becomes a draft.</p></div>
+            <div class="step" style="--n:4"><b>You confirm</b><p>Nothing is saved without your tap.</p></div>
+            <div class="step" style="--n:5"><b>SwiftData</b><p>Saved on your phone, not in the cloud.</p></div>
+          </div>
+          <div class="arch-note"><span>🔒 Never sent to the assistant</span><em>date of birth · body-fat % · target weight</em></div>
+        </div>
+        <div class="ph-foot reveal">
+          <div class="chips"><span class="chip">Swift</span><span class="chip">SwiftUI</span><span class="chip">SwiftData</span><span class="chip">OpenAI API</span><span class="chip">Open Food Facts</span><span class="chip">GitHub Actions</span></div>
+          <a class="link-btn" href="https://github.com/FelixYSW/Nutrition-Tracker" target="_blank" rel="noopener">View on GitHub ↗</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ═════════ SKILLS ═════════ -->
+  <section class="section" id="skills">
+    <div class="container">
+      <span class="eyebrow reveal">Toolbox</span>
+      <h2 class="h2 reveal">What I work with, and <span class="grad-text">how I work</span>.</h2>
+      <div class="skills-grid">
+        <div class="skill-card reveal" style="--c: rgba(139,108,255,.4)"><div class="ico">🧠</div><h3>AI &amp; Machine Learning</h3>
+          <div class="chips"><span class="chip">Machine Learning</span><span class="chip">Computer Vision</span><span class="chip">Model Training</span><span class="chip">Data Analysis</span><span class="chip">RapidMiner</span></div></div>
+        <div class="skill-card reveal" style="--c: rgba(40,215,240,.35); --d:.08s"><div class="ico">📱</div><h3>Mobile &amp; Web</h3>
+          <div class="chips"><span class="chip">iOS (Swift)</span><span class="chip">React Native</span><span class="chip">ARKit</span><span class="chip">Core ML</span><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">JavaScript</span><span class="chip">TypeScript</span><span class="chip">Tailwind CSS</span><span class="chip">Firebase</span></div></div>
+        <div class="skill-card reveal" style="--c: rgba(62,230,176,.32); --d:.16s"><div class="ico">⚙️</div><h3>Languages &amp; Tools</h3>
+          <div class="chips"><span class="chip">Python</span><span class="chip">Java</span><span class="chip">C#</span><span class="chip">C++</span><span class="chip">SQL</span><span class="chip">R</span><span class="chip">Git</span><span class="chip">Docker</span><span class="chip">Figma</span><span class="chip">Google Colab</span></div></div>
+      </div>
+      <div class="soft">
+        <div class="reveal"><b>Problem-solving</b><span>When a tool blocks me, I look for another route.</span></div>
+        <div class="reveal" style="--d:.06s"><b>Self-directed learning</b><span>Each project taught me something I hadn't used before.</span></div>
+        <div class="reveal" style="--d:.12s"><b>Ownership</b><span>I take things from idea to a running, tested product.</span></div>
+        <div class="reveal" style="--d:.18s"><b>Working with people</b><span>I build for real users and clients, and I enjoy team work.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ EXPERIENCE ═════════ -->
+  <section class="section" id="experience">
+    <div class="container">
+      <span class="eyebrow reveal">Background</span>
+      <h2 class="h2 reveal">Experience &amp; education.</h2>
+      <div class="two-col">
+        <div class="card reveal">
+          <h3>Experience</h3>
+          <div class="entry">
+            <h4>R&amp;D Intern</h4>
+            <div class="org">REDtone Telecommunications Sdn Bhd</div>
+            <div class="date">Sept 2025 – Jan 2026 · 16 weeks</div>
+            <ul>
+              <li>Built AI agent solutions for clients using modern software architecture.</li>
+              <li>Redesigned the frontend interfaces of the company's AI services portal.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card reveal" style="--d:.1s">
+          <h3>Education</h3>
+          <div class="entry">
+            <h4>Bachelor of Computer Science (Hons), Artificial Intelligence</h4>
+            <div class="org">Asia Pacific University, Bukit Jalil</div>
+            <div class="date">Nov 2023 – Oct 2026 · CGPA 3.5</div>
+          </div>
+          <div class="entry">
+            <h4>Foundation in Information Technology</h4>
+            <div class="org">Multimedia University, Cyberjaya</div>
+            <div class="date">Oct 2022 – Sept 2023 · CGPA 3.0</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ RESUME ═════════ -->
+  <section class="section" id="resume">
+    <div class="container">
+      <span class="eyebrow reveal">Resume</span>
+      <h2 class="h2 reveal">The short version, <span class="grad-text">on one page</span>.</h2>
+      <div class="resume-box">
+        <div class="resume-copy reveal">
+          <p class="lead">Everything on this page, summarised for recruiters. Download it, or open the printable version.</p>
+          <ul>
+            <li>Computer Science (AI) graduate, CGPA 3.5</li>
+            <li>16-week R&amp;D internship in AI agents and frontend</li>
+            <li>Five end-to-end projects across web, iOS and AI</li>
+          </ul>
+          <a class="btn btn-primary" href="assets/Felix-Yap-Soon-Wei-Resume.pdf" download>⬇ Download PDF</a>
+          <a class="btn btn-ghost" href="resume.html" target="_blank" rel="noopener">Open full page ↗</a>
+        </div>
+        <div class="resume-frame reveal" style="--d:.1s">
+          <div class="resume-glow"></div>
+          <div class="resume-scale" id="resumeScale">
+            <iframe src="resume.html" title="Resume preview" loading="lazy" id="resumeFrame"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ CONTACT ═════════ -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <span class="eyebrow reveal">Contact</span>
+      <h2 class="reveal">Let's build something <span class="grad-text">together</span>.</h2>
+      <p class="lead reveal">I'm looking for a junior software or AI role where I can keep learning from a great team. Advice and introductions are always welcome.</p>
+      <div class="contact-links reveal">
+        <a class="btn btn-primary" href="mailto:felixysw.tech@gmail.com">✉ felixysw.tech@gmail.com</a>
+        <a class="btn btn-ghost" href="https://github.com/FelixYSW" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/search/results/people/?keywords=Felix%20Soon%20Wei%20Yap" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <footer>
+    <div class="container"><span>© <span id="year"></span> Felix Yap Soon Wei</span><span>Designed and built by hand · HTML, CSS &amp; a little JavaScript</span></div>
+  </footer>
+
+  <!-- AR phone artwork (cloned into each [data-ar]) -->
+  <template id="ar-tpl">
+    <svg class="fill" viewBox="0 0 252 520" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b2a5e"/><stop offset=".5" stop-color="#3a4f8f"/><stop offset="1" stop-color="#8aa0c9"/></linearGradient>
+        <linearGradient id="road" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b4256"/><stop offset="1" stop-color="#1d2230"/></linearGradient>
+        <linearGradient id="walk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6f7690"/><stop offset="1" stop-color="#4b5169"/></linearGradient>
+        <linearGradient id="chev" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3ee6b0"/><stop offset="1" stop-color="#28d7f0"/></linearGradient>
+        <filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <rect width="252" height="520" fill="url(#sky)"/>
+      <!-- skyline -->
+      <g fill="#161d3d" opacity=".85">
+        <rect x="0" y="150" width="34" height="110"/><rect x="38" y="120" width="30" height="140"/><rect x="72" y="170" width="26" height="90"/>
+        <rect x="156" y="140" width="28" height="120"/><rect x="188" y="110" width="34" height="150"/><rect x="226" y="160" width="26" height="100"/>
+      </g>
+      <g fill="#ffd98a" opacity=".5"><rect x="44" y="132" width="4" height="4"/><rect x="54" y="150" width="4" height="4"/><rect x="196" y="124" width="4" height="4"/><rect x="206" y="146" width="4" height="4"/><rect x="164" y="156" width="4" height="4"/></g>
+      <!-- ground -->
+      <polygon points="0,260 252,260 252,520 0,520" fill="#242b3f"/>
+      <polygon points="0,520 0,262 110,262 28,520" fill="url(#walk)"/>
+      <polygon points="252,520 252,262 142,262 224,520" fill="url(#walk)"/>
+      <polygon points="28,520 110,262 142,262 224,520" fill="url(#road)"/>
+      <g stroke="#cfd6ea" stroke-width="2" opacity=".5" stroke-dasharray="14 18"><line x1="126" y1="520" x2="126" y2="262"/></g>
+      <!-- route chevrons -->
+      <g class="chevs" fill="none" stroke="url(#chev)" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)">
+        <polyline class="cv" style="--i:0" stroke-width="9" points="78,490 126,458 174,490"/>
+        <polyline class="cv" style="--i:1" stroke-width="7.5" points="88,425 126,399 164,425"/>
+        <polyline class="cv" style="--i:2" stroke-width="6" points="97,370 126,350 155,370"/>
+        <polyline class="cv" style="--i:3" stroke-width="4.8" points="104,328 126,313 148,328"/>
+        <polyline class="cv" style="--i:4" stroke-width="3.8" points="110,296 126,285 142,296"/>
+        <polyline class="cv" style="--i:5" stroke-width="3" points="115,272 126,265 137,272"/>
+      </g>
+      <!-- destination pin -->
+      <g transform="translate(126 214)" filter="url(#glow)"><path d="M0 0c-9 -14 -14 -20 -14 -28a14 14 0 1 1 28 0c0 8 -5 14 -14 28z" fill="#ff6fb1"/><circle cy="-28" r="5.5" fill="#fff"/></g>
+      <ellipse cx="126" cy="262" rx="14" ry="3" fill="#000" opacity=".35"/>
+      <!-- hazard box -->
+      <g class="haz">
+        <ellipse cx="176" cy="372" rx="17" ry="7" fill="#0b0e18" opacity=".8"/>
+        <rect x="150" y="352" width="54" height="38" rx="4" fill="rgba(255,111,177,.12)" stroke="#ff6fb1" stroke-width="2" stroke-dasharray="6 4"/>
+        <rect x="150" y="338" width="78" height="15" rx="3" fill="#ff6fb1"/>
+        <text x="155" y="349" font-family="monospace" font-size="9" font-weight="700" fill="#1a0614">pothole 0.87</text>
+      </g>
+      <!-- top banner -->
+      <g><rect x="14" y="44" width="224" height="58" rx="16" fill="rgba(8,12,26,.82)" stroke="rgba(255,255,255,.14)"/>
+        <rect x="26" y="56" width="34" height="34" rx="10" fill="#3ee6b0"/>
+        <path d="M43 80V68m0 0l-7 7m7-7l7 7" stroke="#04101a" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="72" y="72" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#fff">In 40 m</text>
+        <text x="72" y="90" font-family="Arial,sans-serif" font-size="11" fill="#aab6d6">Jalan Ampang · ramp ahead</text></g>
+      <!-- bottom bar -->
+      <g><rect x="40" y="478" width="172" height="28" rx="14" fill="rgba(8,12,26,.82)" stroke="rgba(255,255,255,.14)"/>
+        <circle cx="58" cy="492" r="5" fill="#3ee6b0"/><text x="70" y="496" font-family="Arial,sans-serif" font-size="11" fill="#e8ecf6">Visual lock · ±2.1 m</text></g>
+    </svg>
+  </template>
+
+  <script src="script.js"></script>
+</body>
 </html>
