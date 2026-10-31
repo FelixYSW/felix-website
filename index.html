@@ -1,10 +1,225 @@
-<html>
-    <head>
-        <title>Hello World</title>
-    </head>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Felix Yap | Portfolio</title>
+<meta name="description" content="Felix Yap Soon Wei, Computer Science (AI) graduate in Kuala Lumpur. Projects: Accessible Navigation, Qtic event ticketing, Pet Breeder Genealogy Tracker and a nutrition tracker.">
+<meta name="theme-color" content="#eef0f3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="screens.css">
+</head>
+<body>
+<a class="skip" href="#projects">Skip to projects</a>
 
-    <body>
-        <h1>Hello</h1>
-        <p1>Hello my world, you are my sunshine</p1>
-    </body>
+<header class="top">
+  <a class="top__name" href="#top">Felix Yap</a>
+  <nav aria-label="Sections">
+    <a href="#navigation">Navigation app</a>
+    <a href="#qtic">Qtic</a>
+    <a href="#pets">Pet tracker</a>
+    <a href="#nutrition">Nutrition</a>
+    <a href="#resume">Resume</a>
+  </nav>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="hero__copy">
+    <h1>Felix Yap Soon Wei</h1>
+    <p class="hero__lead">Computer Science graduate specialising in AI, based in Kuala Lumpur. I build web and iOS apps, from the interface down to the database.</p>
+    <p class="actions">
+      <a class="btn btn--solid" href="#projects">See the projects</a>
+      <a class="btn" href="assets/Felix-Yap-Soon-Wei-Resume.pdf" download>Download resume (PDF)</a>
+    </p>
+  </div>
+
+  <ul class="hero__strip" aria-label="Project screens; each links to its project">
+    <li class="strip__item strip__item--1">
+      <a href="#navigation" aria-label="Accessible Navigation">
+        <div class="phone"><div class="phone__screen"><div class="app" data-screen="nav-map" aria-hidden="true"></div></div></div>
+      </a>
+    </li>
+    <li class="strip__item strip__item--2">
+      <a href="#qtic" aria-label="Qtic event ticketing">
+        <div class="phone"><div class="phone__screen"><img src="assets/shots/qtic-events.webp" width="780" height="1688" alt=""></div></div>
+      </a>
+    </li>
+    <li class="strip__item strip__item--3">
+      <a href="#pets" aria-label="Pet Breeder Genealogy Tracker">
+        <div class="phone"><div class="phone__screen"><img src="assets/shots/pet-detail-m.webp" width="780" height="1688" alt=""></div></div>
+      </a>
+    </li>
+    <li class="strip__item strip__item--4">
+      <a href="#nutrition" aria-label="Nutrition Tracker">
+        <div class="phone"><div class="phone__screen"><div class="app" data-screen="nut-today" aria-hidden="true"></div></div></div>
+      </a>
+    </li>
+  </ul>
+</section>
+
+<div id="projects"></div>
+
+<section class="project" id="navigation" data-app="nav">
+  <div class="project__text">
+    <p class="project__kind">Final year project &middot; iOS app</p>
+    <h2>Accessible Navigation</h2>
+    <p class="project__lead">Walking directions that account for a wheelchair, walker or cane, with augmented-reality guidance and on-device hazard detection.</p>
+    <p>Most navigation apps assume everyone walks at the same pace over any surface. This app asks for the user's mobility aid, plans routes around steps and kerbs using OpenStreetMap data, and scales the journey time to that aid's pace. During navigation the camera shows arrows on the ground and flags potholes, slippery surfaces, broken tactile paving and obstructions.</p>
+    <h3>What I built</h3>
+    <ul class="list">
+      <li>Barrier-aware route planning from OpenStreetMap and OpenRouteService data, with four mobility profiles.</li>
+      <li>AR route guidance on ARKit (iOS) and ARCore Geospatial (Android), through a custom Swift native module.</li>
+      <li>On-device YOLO26n hazard detection, converted to Core ML and run at 10 Hz.</li>
+      <li>Text size, dark mode and spoken-turn settings, because the people using it may need them.</li>
+    </ul>
+    <p class="stack">React Native, Swift, ARKit, Core ML, YOLO26, OpenStreetMap</p>
+  </div>
+  <div class="project__visual">
+    <div class="duo">
+      <figure class="phone" style="--k:.72"><div class="phone__screen"><div class="app" data-screen="nav-map" role="img" aria-label="The Navigate screen with a planned route and a route summary panel"></div></div></figure>
+      <figure class="phone phone--low" style="--k:.72"><div class="phone__screen"><div class="app" data-screen="nav-settings" role="img" aria-label="The Settings screen in dark mode, showing mobility aid and hazard type controls"></div></div></figure>
+    </div>
+    <p class="caption">The app runs on iOS only, so these two screens are rebuilt in HTML and CSS from its source code: same layout, colours, spacing and wording. The route and place are sample data.</p>
+  </div>
+</section>
+
+<section class="project" id="qtic" data-app="qtic">
+  <div class="project__text">
+    <p class="project__kind">Web app &middot; built end to end</p>
+    <h2>Qtic event ticketing</h2>
+    <p class="project__lead">Browse events, pick a session, pay and get a QR ticket. Organisers publish events and scan tickets at the door.</p>
+    <p>Qtic works for guests without an account, so buying a ticket takes one short form. Organisers apply to be approved by an admin, create events with multiple sessions and ticket types, and check people in by scanning their QR code.</p>
+    <h3>What I built</h3>
+    <ul class="list">
+      <li>Responsive React interface with guest checkout, a cart and QR-code tickets.</li>
+      <li>Serverless Firebase backend: Firestore, Auth and Cloud Functions.</li>
+      <li>Role-based security rules (guest, user, organiser, admin) with automated tests.</li>
+      <li>Billplz payments, transactional email and a GitHub Actions deploy pipeline.</li>
+      <li>Admin-approved organiser onboarding, with a dashboard for each role.</li>
+    </ul>
+    <p class="stack">React (Vite), Tailwind CSS, Firebase, Billplz, Google Maps</p>
+  </div>
+  <div class="project__visual">
+    <figure class="browser">
+      <div class="browser__bar"><span>localhost:5173</span></div>
+      <img src="assets/shots/qtic-desktop.webp" width="1400" height="875" alt="Qtic events page on desktop: a search bar, category filters and a grid of event cards with prices">
+    </figure>
+    <div class="duo duo--tight">
+      <figure class="phone" style="--k:.62"><div class="phone__screen"><img src="assets/shots/qtic-detail.webp" width="780" height="1688" alt="Event detail page with sessions, venue and ticket prices"></div></figure>
+      <figure class="phone" style="--k:.62"><div class="phone__screen"><img src="assets/shots/qtic-booking.webp" width="780" height="1688" alt="Booking details form, step 1 of 3"></div></figure>
+    </div>
+    <p class="caption">Screenshots of the running app against local Firebase emulators. The events, organisers and poster art are demo data I made for this page.</p>
+  </div>
+</section>
+
+<section class="project" id="pets" data-app="pet">
+  <div class="project__text">
+    <p class="project__kind">Web app &middot; built for a real breeder</p>
+    <h2>Pet Breeder Genealogy Tracker</h2>
+    <p class="project__lead">A family tree for hamster breeders, with a blood check that warns before two closely related animals are paired.</p>
+    <p>Sweet Pawz needed lineage, fur genetics and sale status in one place instead of scattered notes and photos. Each animal is a card in a generation-by-generation tree, and selecting two animals shows how closely they are related before a pairing is made.</p>
+    <h3>What I built</h3>
+    <ul class="list">
+      <li>Interactive tree with generations, parent links, filters and search.</li>
+      <li>Blood check for pairing, based on shared ancestors.</li>
+      <li>Records for fur type, pattern, carrier genes and status (own, for sale, sold, adopted).</li>
+      <li>Installable progressive web app that works offline and syncs through Firebase.</li>
+    </ul>
+    <p class="stack">JavaScript, HTML, CSS, Bootstrap, Firebase</p>
+  </div>
+  <div class="project__visual">
+    <figure class="browser">
+      <div class="browser__bar"><span>localhost:8090</span></div>
+      <img src="assets/shots/pet-tree-d.webp" width="1400" height="1071" alt="Family tree with three generations of hamsters, coloured rings showing status, and Check Blood and Filters buttons">
+    </figure>
+    <div class="duo duo--tight">
+      <figure class="phone" style="--k:.62"><div class="phone__screen"><img src="assets/shots/pet-detail-m.webp" width="780" height="1688" alt="Animal detail card showing sex, date of birth, fur, pattern and status"></div></figure>
+      <figure class="browser browser--small">
+        <div class="browser__bar"><span>localhost:8090</span></div>
+        <img src="assets/shots/pet-blood-d.webp" width="1400" height="1071" alt="Blood check result: Related (Warning), explaining that one animal is the uncle of another">
+      </figure>
+    </div>
+    <p class="caption">Screenshots of the running app. The animals, names and IDs are sample data, not the breeder's records.</p>
+  </div>
+</section>
+
+<section class="project" id="nutrition" data-app="nut">
+  <div class="project__text">
+    <p class="project__kind">Personal project &middot; iOS app</p>
+    <h2>Nutrition Tracker</h2>
+    <p class="project__lead">A food log with an AI assistant that can look up what you ate and suggest what fits the rest of your day.</p>
+    <p>Daily targets are shown as ranges rather than single numbers, and going over is a heads-up, not an error. The assistant can read the food log and ranges, and it always shows a draft and waits for confirmation before it changes anything.</p>
+    <h3>What I built</h3>
+    <ul class="list">
+      <li>Native SwiftUI app with SwiftData storage, kept on the device.</li>
+      <li>Assistant on the OpenAI Responses API with function calling and web search.</li>
+      <li>Barcode lookup through Open Food Facts and Malaysian food data from MyFCD.</li>
+      <li>Calendar and trend views, with nutrient colours chosen to stay distinguishable for colour-blind users.</li>
+    </ul>
+    <p class="stack">Swift, SwiftUI, SwiftData, OpenAI API</p>
+  </div>
+  <div class="project__visual">
+    <div class="duo">
+      <figure class="phone" style="--k:.72"><div class="phone__screen"><div class="app" data-screen="nut-today" role="img" aria-label="The Today screen: calorie ring, four macro rings and the food log"></div></div></figure>
+      <figure class="phone phone--low" style="--k:.72"><div class="phone__screen"><div class="app" data-screen="nut-assistant" role="img" aria-label="The Assistant screen with a greeting and four suggestion chips"></div></div></figure>
+    </div>
+    <p class="caption">The app runs on iOS only, so these screens are rebuilt in HTML and CSS from its source code: same layout, colours and wording. The meals and numbers are sample data.</p>
+  </div>
+</section>
+
+<section class="also" aria-labelledby="also-h">
+  <h2 id="also-h">Also</h2>
+  <div class="also__grid">
+    <article>
+      <h3>Malaysia Photovoltaic Energy Output Predictor</h3>
+      <p>Group project. A browser tool that estimates solar output across Malaysia by running a self-trained XGBoost model over 8,760 hours of weather data, with a Canvas map layer that uses viewport culling and heatmaps for site ranking.</p>
+      <p class="stack">React, TypeScript, Google API, XGBoost</p>
+    </article>
+    <article>
+      <h3>R&amp;D internship, REDtone Telecommunications</h3>
+      <p>September 2025 to January 2026. Built AI agent solutions for clients and redesigned the front end of the company's AI services portal.</p>
+    </article>
+  </div>
+</section>
+
+<section class="resume" id="resume">
+  <div class="resume__text">
+    <h2>Resume</h2>
+    <p>One page: education, internship, projects and skills.</p>
+    <p class="actions">
+      <a class="btn btn--solid" href="assets/Felix-Yap-Soon-Wei-Resume.pdf" download>Download PDF</a>
+      <a class="btn" href="resume.html">Open in browser</a>
+    </p>
+    <dl class="facts">
+      <div><dt>Education</dt><dd>BCS (Hons) Artificial Intelligence, Asia Pacific University. Graduating October 2026, CGPA 3.5.</dd></div>
+      <div><dt>Languages</dt><dd>English, Chinese, Bahasa Malaysia, Cantonese.</dd></div>
+      <div><dt>Open to</dt><dd>Software, mobile and AI roles in Kuala Lumpur and the Klang Valley. Happy to relocate.</dd></div>
+    </dl>
+  </div>
+  <a class="resume__page" href="assets/Felix-Yap-Soon-Wei-Resume.pdf" aria-label="Open the resume PDF">
+    <img src="assets/resume-preview.webp" width="1240" height="1754" alt="Preview of the one-page resume">
+  </a>
+</section>
+
+</main>
+
+<footer class="foot" id="contact">
+  <div>
+    <h2>Contact</h2>
+    <p>Happy to walk through any of these projects in detail.</p>
+  </div>
+  <ul>
+    <li><a href="mailto:felixysw.tech@gmail.com">felixysw.tech@gmail.com</a></li>
+    <li><a href="https://github.com/FelixYSW">github.com/FelixYSW</a></li>
+    <li>LinkedIn: Felix Soon Wei Yap</li>
+  </ul>
+</footer>
+
+<script src="screens.js"></script>
+</body>
 </html>

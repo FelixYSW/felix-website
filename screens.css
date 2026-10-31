@@ -1,0 +1,115 @@
+.app {
+  position: absolute; left: 0; top: 0; width: 390px; height: 844px;
+  transform: scale(var(--k, .7)); transform-origin: 0 0; overflow: hidden;
+  font-family: -apple-system, "SF Pro Text", "Segoe UI", Roboto, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.app * { box-sizing: border-box; }
+.app h4, .app p { margin: 0; }
+
+/* Rebuilt app screens. Colours here are the apps' own design tokens, copied exactly
+   (src/theme/tokens.ts and Components/AppTheme.swift), so they are deliberate literals. */
+/* =====================================================
+   Rebuilt app screens (390 x 844 logical points)
+   ===================================================== */
+
+/* ---- Accessible Navigation: tokens from src/theme/tokens.ts ---- */
+.app--nav-map { background: #ebe8e0; color: #181611; }
+.nv-map { position: absolute; inset: 0; }
+.nv-search {
+  position: absolute; left: 16px; right: 16px; top: 59px; height: 52px; padding: 0 16px;
+  display: flex; align-items: center; background: #fff; border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .14); font-size: 16px;
+}
+.nv-search i { margin-left: auto; width: 24px; height: 24px; border-radius: 12px; background: #a19e98; color: #fff; font: 700 12px/24px system-ui; text-align: center; font-style: normal; }
+.nv-pill {
+  position: absolute; height: 28px; padding: 0 10px; border-radius: 14px; background: #fff; color: #003386;
+  border: 1.5px solid #8ba0be; font-size: 13px; font-weight: 600; line-height: 25px; white-space: nowrap;
+}
+.nv-pill--on { background: #013e8b; color: #fff; border-color: #013e8b; }
+.nv-recenter { position: absolute; right: 16px; bottom: 342px; width: 48px; height: 48px; border-radius: 24px; background: #fff; display: grid; place-items: center; box-shadow: 0 4px 16px rgba(0, 0, 0, .14); }
+.nv-panel { position: absolute; left: 16px; right: 16px; bottom: 99px; background: #fff; border-radius: 18px; padding: 18px 18px 16px; box-shadow: 0 -4px 24px rgba(0, 0, 0, .14); }
+.nv-panel__name { font-size: 18px; font-weight: 700; }
+.nv-panel__addr { font-size: 13px; color: #65635d; margin-top: 2px; }
+.nv-panel__stats { font-size: 15px; font-weight: 600; color: #004296; margin-top: 10px; }
+.nv-panel__via { font-size: 12.5px; color: #65635d; margin-top: 4px; }
+.nv-row { display: flex; align-items: center; gap: 8px; margin-top: 6px; font-size: 12.5px; color: #65635d; }
+.nv-row b { width: 8px; height: 8px; border-radius: 4px; flex: none; }
+.nv-start { margin-top: 14px; padding: 14px 0; border-radius: 12px; background: #1b9247; color: #fff; font-size: 16px; font-weight: 700; text-align: center; }
+.nv-tabs { position: absolute; left: 0; right: 0; bottom: 0; height: 83px; display: flex; background: #fff; border-top: 1px solid #ecebe7; }
+.nv-tab { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; padding-top: 9px; color: #a19e98; font-size: 11px; font-weight: 500; }
+.nv-tab.is-on { color: #1f6dd8; }
+
+.app--nav-settings { background: #121212; color: #e0e0e0; }
+.nv-set { position: absolute; inset: 0; padding: 59px 16px 0; }
+.nv-set h4 { font: 700 32px/1.1 -apple-system, "SF Pro Display", system-ui, sans-serif; color: #e0e0e0; margin-bottom: 6px; }
+.nv-lab { font-size: 13px; color: #a0a0a0; margin: 18px 4px 8px !important; }
+.nv-card { background: #242424; border-radius: 16px; overflow: hidden; }
+.nv-r { padding: 13px 16px; }
+.nv-r--in { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.nv-r--div { border-bottom: 1px solid #383838; }
+.nv-t { font-size: 16px; }
+.nv-t--sw { display: flex; align-items: center; gap: 12px; }
+.nv-t--sw b { width: 14px; height: 14px; border-radius: 4px; }
+.nv-r > .nv-t:first-child:not(:last-child) { margin-bottom: 10px; }
+.nv-r--in > .nv-t { margin: 0 !important; }
+.nv-s { font-size: 12.5px; color: #a0a0a0; margin-top: 2px; }
+.nv-seg { display: flex; background: #2d2d2d; border-radius: 10px; padding: 3px; }
+.nv-r > .nv-seg { background: #121212; }
+.nv-seg span { flex: 1; text-align: center; padding: 7px 0; font-size: 14px; border-radius: 8px; color: #e0e0e0; }
+.nv-seg span.is-on { background: #1857ae; color: #fff; font-weight: 600; }
+.nv-sw { position: relative; flex: none; width: 51px; height: 31px; border-radius: 16px; background: #3a3a3c; }
+.nv-sw::after { content: ""; position: absolute; top: 2px; left: 2px; width: 27px; height: 27px; border-radius: 50%; background: #fff; }
+.nv-sw.is-on { background: #117436; }
+.nv-sw.is-on::after { left: 22px; }
+.app--nav-settings .nv-tabs { background: #242424; border-top-color: #383838; }
+.app--nav-settings .nv-tab { color: #8e8e93; }
+.app--nav-settings .nv-tab.is-on { color: #5b90dd; }
+
+/* ---- Nutrition Tracker: tokens from Components/AppTheme.swift ---- */
+.app--nut-today, .app--nut-assistant {
+  background: #f3f1ec; color: #2a2926;
+  font-family: ui-rounded, "SF Pro Rounded", -apple-system, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+}
+.nt-page { position: absolute; inset: 0; padding: 59px 16px 0; }
+.nt-head { display: flex; justify-content: space-between; align-items: flex-start; }
+.nt-head h4 { font-size: 34px; font-weight: 800; line-height: 1.1; }
+.nt-head p { font-size: 15px; color: #6a665e; margin-top: 2px; }
+.nt-glass { width: 44px; height: 44px; border-radius: 22px; background: rgba(255, 255, 255, .72); border: 1px solid #ece9e2; display: grid; place-items: center; }
+.nt-glass.is-off { opacity: .35; }
+.nt-days { display: flex; align-items: center; gap: 10px; margin: 14px 0 14px; }
+.nt-days span { flex: 1; }
+.nt-today { height: 44px; padding: 0 18px; border-radius: 22px; background: rgba(255, 255, 255, .72); border: 1px solid #ece9e2; font-size: 15px; font-weight: 600; line-height: 42px; opacity: .35; }
+.nt-hero { display: flex; justify-content: space-between; align-items: center; padding: 20px 20px; background: #eae7e0; border-radius: 22px; margin-bottom: 14px; }
+.nt-hero__lab { font-size: 13px; font-weight: 600; color: #55524c; }
+.nt-hero__n { font-size: 42px; font-weight: 800; line-height: 1.1; margin: 2px 0; }
+.nt-hero__s { font-size: 14px; color: #55524c; }
+.nt-ring { position: relative; flex: none; }
+.nt-ring > svg { position: absolute; inset: 0; }
+.nt-ring__c { position: absolute; inset: 0; display: grid; place-items: center; }
+.nt-rings { display: flex; gap: 4px; padding: 16px 8px; background: #faf9f6; border: 1px solid #ece9e2; border-radius: 22px; margin-bottom: 4px; }
+.nt-m { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; }
+.nt-m .nt-ring { margin-bottom: 5px; }
+.nt-m b { font-size: 13px; font-weight: 700; }
+.nt-m__v { font-size: 15px; font-weight: 800; }
+.nt-m small { font-size: 10.5px; color: #6a665e; }
+.nt-sec { display: flex; justify-content: space-between; align-items: baseline; margin: 18px 4px 10px; }
+.nt-sec b { font-size: 20px; font-weight: 800; }
+.nt-sec span { font-size: 13px; color: #6a665e; }
+.nt-food { display: flex; align-items: center; gap: 12px; padding: 13px 14px; background: #faf9f6; border: 1px solid #ece9e2; border-radius: 22px; margin-bottom: 10px; }
+.nt-food__i { width: 40px; height: 40px; border-radius: 20px; background: #e6e3dc; display: grid; place-items: center; flex: none; }
+.nt-food__t { flex: 1; min-width: 0; }
+.nt-food__t b { display: block; font-size: 17px; font-weight: 700; }
+.nt-food__t span { font-size: 13px; color: #6a665e; }
+.nt-food__k { text-align: right; }
+.nt-food__k b { display: block; font-size: 17px; font-weight: 800; line-height: 1.1; }
+.nt-food__k span { font-size: 12px; font-weight: 600; color: #6a665e; }
+.nt-tabs { position: absolute; left: 0; right: 0; bottom: 0; height: 83px; display: flex; background: rgba(250, 249, 246, .96); border-top: 1px solid #ece9e2; }
+.nt-tab { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; padding-top: 9px; color: #8a867e; font-size: 11px; font-weight: 600; }
+.nt-tab.is-on { color: #2a2926; }
+.nt-asst { position: absolute; left: 0; right: 0; top: 0; bottom: 83px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 0 24px; }
+.nt-appicon { width: 72px; height: 72px; border-radius: 16px; background: linear-gradient(160deg, #e8702e, #db5a1f); display: grid; place-items: center; }
+.nt-asst h4 { font-size: 24px; font-weight: 800; }
+.nt-chips > div { display: flex; gap: 8px; justify-content: center; margin-bottom: 8px; }
+.nt-chip { display: inline-flex; align-items: center; gap: 7px; padding: 11px 15px; border-radius: 999px; background: #faf9f6; border: 1px solid #ece9e2; font-size: 14.5px; font-weight: 600; white-space: nowrap; }
+.nt-foot { font-size: 11px; color: #6a665e; text-align: center; max-width: 280px; margin-top: 60px !important; }
