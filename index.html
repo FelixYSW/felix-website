@@ -77,6 +77,12 @@
       <li>On-device YOLO26n hazard detection, converted to Core ML and run at 10 Hz.</li>
       <li>Text size, dark mode and spoken-turn settings, because the people using it may need them.</li>
     </ul>
+        <h3>Soft skills in practice</h3>
+    <ul class="list list--soft">
+      <li><strong>Empathy.</strong> The app starts from the user's mobility aid, not from a generic walker. A wheelchair, walker and cane each change the route, the pace and the warnings, and the settings screen explains that in plain words.</li>
+      <li><strong>Research.</strong> Journey times come from published walking-speed figures for each aid, instead of one pace for everyone.</li>
+      <li><strong>Judgement under limits.</strong> I scoped it iOS-first and chose which features to finish properly, rather than spreading thin across both platforms.</li>
+    </ul>
     <p class="stack">React Native, Swift, ARKit, Core ML, YOLO26, OpenStreetMap</p>
   </div>
   <div class="project__visual">
@@ -100,6 +106,12 @@
       <li>Role-based security rules (guest, user, organiser, admin) with automated tests.</li>
       <li>Billplz payments, transactional email and a GitHub Actions deploy pipeline.</li>
       <li>Admin-approved organiser onboarding, with a dashboard for each role.</li>
+    </ul>
+        <h3>Soft skills in practice</h3>
+    <ul class="list list--soft">
+      <li><strong>Ownership.</strong> I took it from the first screen to deployment: interface, database rules, payments, email and the pipeline.</li>
+      <li><strong>Attention to detail.</strong> Money and access are where mistakes cost the most, so the security rules for each role have automated tests.</li>
+      <li><strong>Clear documentation.</strong> A local-testing guide lets someone else run the whole app on their machine without touching the live project.</li>
     </ul>
     <p class="stack">React (Vite), Tailwind CSS, Firebase, Billplz, Google Maps</p>
   </div>
@@ -125,6 +137,12 @@
       <li>Records for fur type, pattern, carrier genes and status (own, for sale, sold, adopted).</li>
       <li>Installable progressive web app that works offline and syncs through Firebase.</li>
     </ul>
+        <h3>Soft skills in practice</h3>
+    <ul class="list list--soft">
+      <li><strong>Listening.</strong> It was built for a working breeder, so the records, fields and wording follow how a breeder already describes their animals.</li>
+      <li><strong>Prioritising.</strong> Lineage, the blood check and sale status are the core, with search and filters to find an animal quickly.</li>
+      <li><strong>Explaining clearly.</strong> The blood check says in a sentence how two animals are related, so a non-technical user can act on it.</li>
+    </ul>
     <p class="stack">JavaScript, HTML, CSS, Bootstrap, Firebase</p>
   </div>
   <div class="project__visual">
@@ -149,6 +167,12 @@
       <li>Barcode lookup through Open Food Facts and Malaysian food data from MyFCD.</li>
       <li>Calendar and trend views, with nutrient colours chosen to stay distinguishable for colour-blind users.</li>
     </ul>
+        <h3>Soft skills in practice</h3>
+    <ul class="list list--soft">
+      <li><strong>Honesty about limits.</strong> The assistant shows a draft and waits for confirmation before it changes anything, and the app does not claim to recognise food from photos.</li>
+      <li><strong>Self-directed learning.</strong> A native iOS app with on-device storage and an AI assistant was new ground, so I worked from Apple's and OpenAI's documentation.</li>
+      <li><strong>Care for users.</strong> Colours stay distinguishable for colour-blind users, and going over a target is shown as a heads-up, not an error.</li>
+    </ul>
     <p class="stack">Swift, SwiftUI, SwiftData, OpenAI API</p>
   </div>
   <div class="project__visual">
@@ -165,6 +189,7 @@
     <article>
       <h3>Malaysia Photovoltaic Energy Output Predictor</h3>
       <p>Group project. A browser tool that estimates solar output across Malaysia by running a self-trained XGBoost model over 8,760 hours of weather data, with a Canvas map layer that uses viewport culling and heatmaps for site ranking.</p>
+      <p><strong>Teamwork.</strong> The prediction model and the map had to fit together on one shared data format, so the parts were built to agree with each other.</p>
       <p class="stack">React, TypeScript, Google API, XGBoost</p>
     </article>
     <article>
