@@ -109,114 +109,183 @@
     });
   }
 
-  /* ── Qtic: QR + approval toggle ── */
-  const qr = $("#qr");
-  if (qr) {
-    let seed = 7, out = "";
+  /* ── Shared: pseudo QR ── */
+  const drawQR = (svg, seed = 7) => {
+    if (!svg) return;
+    let out = "";
     const rnd = () => ((seed = (seed * 9301 + 49297) % 233280) / 233280);
     const finder = (x, y) => {
       const fx = (x < 7 && y < 7) || (x > 13 && y < 7) || (x < 7 && y > 13);
       if (!fx) return null;
       const lx = x > 13 ? x - 14 : x, ly = y > 13 ? y - 14 : y;
-      const ring = lx === 0 || lx === 6 || ly === 0 || ly === 6;
-      const core = lx >= 2 && lx <= 4 && ly >= 2 && ly <= 4;
-      return ring || core;
+      return lx === 0 || lx === 6 || ly === 0 || ly === 6 || (lx >= 2 && lx <= 4 && ly >= 2 && ly <= 4);
     };
     for (let y = 0; y < 21; y++) for (let x = 0; x < 21; x++) {
       const f = finder(x, y);
-      const on = f === null ? rnd() > 0.52 : f;
-      if (on) out += `<rect x="${x}" y="${y}" width="1" height="1" fill="#0a0f1f"/>`;
+      if (f === null ? rnd() > 0.52 : f) out += `<rect x="${x}" y="${y}" width="1" height="1" fill="#0a0f1f"/>`;
     }
-    qr.innerHTML = out;
-  }
-  const qBtn = $("#qBtn"), qS = $("#qStatus");
-  if (qBtn) qBtn.addEventListener("click", () => {
-    const ok = qS.classList.toggle("ok");
-    qS.classList.toggle("pending", !ok);
-    qS.textContent = ok ? "APPROVED" : "PENDING";
-    qBtn.textContent = ok ? "Undo" : "Approve";
+    svg.innerHTML = out;
+  };
+  drawQR($("#qr2"), 11);
+
+  /* ── Explorer tabs (auto-cycle until the visitor clicks) ── */
+  const hooks = {}; // screen activation hooks, keyed by explorer id
+  $$("[data-explorer]").forEach((ex) => {
+    const tabs = $$(".ex-tab", ex);
+    const screens = $$(".scr", ex);
+    const id = ex.closest("article")?.id;
+    let cur = 0, timer = null, manual = false, visible = false;
+    const go = (i) => {
+      cur = i;
+      tabs.forEach((t, k) => t.classList.toggle("active", k === i));
+      screens.forEach((s, k) => s.classList.toggle("active", k === i));
+      if (id === "p-qtic") { const u = $("#qUrl"); if (u) u.textContent = ["qtic.app/events", "qtic.app/organizer/new", "qtic.app/admin", "qtic.app/scan"][i]; }
+      if (hooks[id]) hooks[id](i);
+    };
+    const start = () => {
+      if (reduce || manual || timer || !visible) return;
+      timer = setInterval(() => go((cur + 1) % tabs.length), 6500);
+    };
+    const stop = () => { clearInterval(timer); timer = null; };
+    tabs.forEach((t, i) => t.addEventListener("click", () => { manual = true; ex.classList.add("manual"); stop(); go(i); }));
+    ex.addEventListener("pointerdown", (e) => { if (e.target.closest(".scr") && !manual) { manual = true; ex.classList.add("manual"); stop(); } });
+    new IntersectionObserver((e) => { visible = e[0].isIntersecting; if (visible) { start(); if (hooks[id]) hooks[id](cur); } else stop(); }, { threshold: 0.35 }).observe(ex);
+    go(0);
   });
 
-  /* ── Nutrition rings ── */
-  const ringsEl = $("#rings");
-  if (ringsEl) {
-    const set = [["#r1", 389.6, 0.77], ["#r2", 301.6, 0.58], ["#r3", 213.6, 0.42]];
-    new IntersectionObserver((ents, o) => {
-      if (!ents[0].isIntersecting) return;
-      set.forEach(([s, c, p], i) => {
-        const el = $(s);
-        el.style.transition = reduce ? "none" : `stroke-dashoffset 1.4s cubic-bezier(.2,.7,.2,1) ${i * 0.15}s`;
-        el.style.strokeDashoffset = c * (1 - p);
-      });
-      o.disconnect();
-    }, { threshold: 0.4 }).observe(ringsEl);
-  }
+  /* ── Accessible Navigation: profile rules ── */
+  const PROF = {
+    none: [["Steps", "Allowed", "ok"], ["Kerbs", "Allowed", "ok"], ["Steep slopes", "Not limited", "off"], ["Narrow paths", "Not limited", "off"], ["Rough surfaces", "Not limited", "off"]],
+    wheelchair: [["Steps", "Blocked", "block"], ["Kerbs", "Blocked", "block"], ["Steep slopes", "Limited", "warn"], ["Narrow paths", "Avoided", "warn"], ["Rough surfaces", "Avoided", "warn"]],
+    walker: [["Steps", "Blocked", "block"], ["Kerbs", "Avoided", "warn"], ["Steep slopes", "Limited", "warn"], ["Narrow paths", "Avoided", "warn"], ["Rough surfaces", "Avoided", "warn"]],
+    cane: [["Steps", "OK with handrail", "warn"], ["Kerbs", "Caution", "warn"], ["Steep slopes", "Limited", "warn"], ["Narrow paths", "Not limited", "off"], ["Rough surfaces", "Caution", "warn"]],
+  };
+  const rules = $("#rules"), grid = $("#profGrid");
+  const showProf = (p) => {
+    $$("button", grid).forEach((b) => b.classList.toggle("on", b.dataset.p === p));
+    rules.innerHTML = PROF[p].map(([a, b, c], i) => `<div class="rule" style="animation-delay:${i * 0.05}s"><span>${a}</span><em class="${c}">${b}</em></div>`).join("");
+  };
+  if (grid) { grid.addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) showProf(b.dataset.p); }); showProf("wheelchair"); }
 
-  /* ── Pet tree demo ── */
-  const tree = $("#tree");
-  if (tree) {
-    const H = {
-      pip: { n: "Pip", x: 45, y: 40, p: [] }, mochi: { n: "Mochi", x: 125, y: 40, p: [] },
-      nugget: { n: "Nugget", x: 205, y: 40, p: [] }, daisy: { n: "Daisy", x: 285, y: 40, p: [] },
-      luna: { n: "Luna", x: 365, y: 40, p: [] }, ziggy: { n: "Ziggy", x: 440, y: 40, p: [] },
-      biscuit: { n: "Biscuit", x: 70, y: 145, p: ["pip", "mochi"] }, cocoa: { n: "Cocoa", x: 135, y: 145, p: ["pip", "mochi"] },
-      waffle: { n: "Waffle", x: 245, y: 145, p: ["nugget", "daisy"] }, olive: { n: "Olive", x: 402, y: 145, p: ["luna", "ziggy"] },
-      peanut: { n: "Peanut", x: 120, y: 250, p: ["biscuit", "waffle"] }, maple: { n: "Maple", x: 230, y: 250, p: ["cocoa", "waffle"] },
-    };
-    const R = 21;
+  /* ── Qtic admin approvals ── */
+  $$("[data-queue]").forEach((q) => q.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-act]");
+    if (!b) return;
+    const row = b.closest(".q-item"), st = $(".st", row);
+    const ok = !st.classList.contains("ok");
+    st.classList.toggle("ok", ok); st.classList.toggle("pending", !ok);
+    st.textContent = ok ? (q.textContent.includes("Events") ? "LIVE" : "APPROVED") : "PENDING";
+    b.textContent = ok ? "Undo" : "Approve"; b.classList.toggle("done", ok);
+  }));
+
+  /* ── Nutrition: rings, chat, trend chart ── */
+  let ringsDone = false;
+  const fillRings = () => {
+    if (ringsDone) return; ringsDone = true;
+    [["#r1", 389.6, 0.77], ["#r2", 301.6, 0.58], ["#r3", 213.6, 0.42]].forEach(([s, c, p], i) => {
+      const el = $(s); if (!el) return;
+      el.style.transition = reduce ? "none" : `stroke-dashoffset 1.4s cubic-bezier(.2,.7,.2,1) ${i * 0.15}s`;
+      el.style.strokeDashoffset = c * (1 - p);
+    });
+  };
+  const chat = $("#chat");
+  let chatRun = 0;
+  const say = (cls, html) => { const d = document.createElement("div"); d.className = "m " + cls; d.innerHTML = html; chat.appendChild(d); return d; };
+  const playChat = async () => {
+    if (!chat) return;
+    const run = ++chatRun; chat.innerHTML = "";
+    const wait = (ms) => new Promise((r) => setTimeout(r, reduce ? 0 : ms));
+    const alive = () => run === chatRun;
+    await wait(400); if (!alive()) return;
+    say("me", "I have about 420 kcal left. What should I eat for dinner?");
+    await wait(800); if (!alive()) return;
+    const tool = say("tool", "🔎 web_search · nearby dinner options"); 
+    await wait(1100); if (!alive()) return;
+    const typing = say("ai", '<span class="typing"><i></i><i></i><i></i></span>');
+    await wait(900); if (!alive()) return;
+    typing.innerHTML = "Grilled chicken rice is about <b>450 kcal</b> with ~30 g protein. It fits your range.";
+    await wait(900); if (!alive()) return;
+    const d = say("draftc", 'Proposed log<b>Grilled chicken rice · 450 kcal</b><small>Waiting for your confirmation</small><div class="acts"><button>Confirm</button><button class="n">Edit</button></div>');
+    d.querySelector("button").addEventListener("click", () => {
+      d.querySelector(".acts").remove(); d.querySelector("small").textContent = "Saved to today";
+      say("done", "✓ Logged on your phone");
+    });
+    d.querySelector(".n").addEventListener("click", () => { d.querySelector("small").textContent = "Opens the draft so you can change it"; });
+  };
+  const bars = $("#bars");
+  if (bars) {
+    const vals = [1650, 1820, 1540, 1980, 1380, 1710, 1760], xs = [18, 51, 84, 117, 150, 183, 211];
+    const y = (v) => 150 - ((v - 1000) / 1200) * 118;
+    bars.parentNode.querySelector("rect").setAttribute("y", y(1900)); bars.parentNode.querySelector("rect").setAttribute("height", y(1500) - y(1900));
+    bars.innerHTML = vals.map((v, i) => `<rect x="${xs[i]}" y="${y(v)}" width="16" height="${150 - y(v)}" rx="4"/>`).join("");
+  }
+  hooks["p-nutrition"] = (i) => { if (i === 0) fillRings(); if (i === 2) playChat(); };
+  hooks["p-nav"] = () => {};
+
+  /* ── Pet: family tree, ancestor trace and breeding check ── */
+  const H = {
+    pip: { n: "Pip", s: "M", x: 45, y: 40, p: [] }, mochi: { n: "Mochi", s: "F", x: 125, y: 40, p: [] },
+    nugget: { n: "Nugget", s: "M", x: 205, y: 40, p: [] }, daisy: { n: "Daisy", s: "F", x: 285, y: 40, p: [] },
+    luna: { n: "Luna", s: "F", x: 365, y: 40, p: [] }, ziggy: { n: "Ziggy", s: "M", x: 440, y: 40, p: [] },
+    biscuit: { n: "Biscuit", s: "M", x: 70, y: 145, p: ["pip", "mochi"] }, cocoa: { n: "Cocoa", s: "F", x: 135, y: 145, p: ["pip", "mochi"] },
+    waffle: { n: "Waffle", s: "F", x: 245, y: 145, p: ["nugget", "daisy"] }, olive: { n: "Olive", s: "F", x: 402, y: 145, p: ["luna", "ziggy"] },
+    peanut: { n: "Peanut", s: "M", x: 120, y: 250, p: ["biscuit", "waffle"] }, maple: { n: "Maple", s: "F", x: 230, y: 250, p: ["cocoa", "waffle"] },
+  };
+  const R = 21;
+  const buildTree = (svg) => {
     let html = "";
     Object.entries(H).forEach(([id, h]) => h.p.forEach((pid) => {
       const q = H[pid], my = (q.y + h.y) / 2;
       html += `<path class="edge" data-e="${pid}>${id}" d="M${q.x} ${q.y + R} C${q.x} ${my} ${h.x} ${my} ${h.x} ${h.y - R}"/>`;
     }));
-    Object.entries(H).forEach(([id, h]) => {
-      html += `<g class="node" data-id="${id}"><circle cx="${h.x}" cy="${h.y}" r="${R}"/><text x="${h.x}" y="${h.y + 4}">${h.n}</text></g>`;
-    });
-    tree.innerHTML = html;
+    Object.entries(H).forEach(([id, h]) => { html += `<g class="node" data-id="${id}"><circle cx="${h.x}" cy="${h.y}" r="${R}"/><text x="${h.x}" y="${h.y + 4}">${h.n}</text></g>`; });
+    svg.innerHTML = html;
+  };
+  const anc = (id, d = 3) => { const s = new Set(); const w = (x, k) => { if (k) H[x].p.forEach((p) => { s.add(p); w(p, k - 1); }); }; w(id, d); return s; };
+  const reset = (svg) => { $$(".node", svg).forEach((n) => n.classList.remove("sel", "anc")); $$(".edge", svg).forEach((e) => e.classList.remove("hot")); };
 
-    const anc = (id, d = 3) => {
-      const s = new Set();
-      const walk = (x, k) => { if (k === 0) return; H[x].p.forEach((p) => { s.add(p); walk(p, k - 1); }); };
-      walk(id, d);
-      return s;
+  const t1 = $("#tree1");
+  if (t1) {
+    buildTree(t1);
+    const info = $("#treeInfo1");
+    const show = (id) => {
+      reset(t1);
+      const A = anc(id);
+      $(`.node[data-id="${id}"]`, t1).classList.add("sel");
+      A.forEach((a) => $(`.node[data-id="${a}"]`, t1).classList.add("anc"));
+      $$(".edge", t1).forEach((e) => { const c = e.dataset.e.split(">")[1]; if (c === id || A.has(c)) e.classList.add("hot"); });
+      const h = H[id];
+      info.innerHTML = h.p.length ? `<b>${h.n}</b> · parents ${H[h.p[0]].n} × ${H[h.p[1]].n}<br><small style="color:var(--muted)">${A.size} ancestors within 3 generations</small>` : `<b>${h.n}</b> · founder<br><small style="color:var(--muted)">No recorded parents</small>`;
     };
-    let sel = ["peanut", "maple"];
-    const verdict = $("#verdict");
-    const render = () => {
-      $$(".node", tree).forEach((n) => { n.classList.toggle("sel", sel.includes(n.dataset.id)); n.classList.remove("anc"); });
-      $$(".edge", tree).forEach((e) => e.classList.remove("hot"));
-      if (sel.length < 2) {
-        verdict.className = "verdict";
-        verdict.innerHTML = "<b>Pick a second hamster</b>Tap any other node to check the pair.";
-        return;
-      }
-      const [a, b] = sel;
-      const A = anc(a), B = anc(b);
-      const A2 = new Set([...A, a]), B2 = new Set([...B, b]);
+    t1.addEventListener("click", (e) => { const n = e.target.closest(".node"); if (n) show(n.dataset.id); });
+    show("peanut");
+  }
+
+  const t2 = $("#tree2"), sA = $("#selA"), sB = $("#selB"), verdict = $("#verdict");
+  if (t2) {
+    buildTree(t2);
+    const opt = (sx, def) => Object.entries(H).filter(([, h]) => h.s === sx).map(([id, h]) => `<option value="${id}"${id === def ? " selected" : ""}>${h.n}</option>`).join("");
+    sA.innerHTML = opt("M", "peanut"); sB.innerHTML = opt("F", "maple");
+    const check = () => {
+      reset(t2);
+      const a = sA.value, b = sB.value;
+      const A2 = new Set([...anc(a), a]), B2 = new Set([...anc(b), b]);
       const shared = [...A2].filter((x) => B2.has(x));
+      $(`.node[data-id="${a}"]`, t2).classList.add("sel"); $(`.node[data-id="${b}"]`, t2).classList.add("sel");
       if (shared.length) {
         verdict.className = "verdict bad";
         verdict.innerHTML = `<b>✕ Not safe to breed</b>${H[a].n} and ${H[b].n} share ${shared.map((s) => H[s].n).join(", ")} within 3 generations.`;
-        shared.forEach((s) => $(`.node[data-id="${s}"]`, tree).classList.add("anc"));
+        shared.forEach((s) => { const n = $(`.node[data-id="${s}"]`, t2); if (!n.classList.contains("sel")) n.classList.add("anc"); });
         const leads = (x) => shared.includes(x) || H[x].p.some(leads);
-        $$(".edge", tree).forEach((e) => {
-          const [p, c] = e.dataset.e.split(">");
-          if ((A2.has(c) || B2.has(c)) && leads(p)) e.classList.add("hot");
-        });
+        $$(".edge", t2).forEach((e) => { const [p, c] = e.dataset.e.split(">"); if ((A2.has(c) || B2.has(c)) && leads(p)) e.classList.add("hot"); });
       } else {
         verdict.className = "verdict good";
         verdict.innerHTML = `<b>✓ Safe to breed</b>${H[a].n} and ${H[b].n} share no ancestors within 3 generations.`;
       }
     };
-    tree.addEventListener("click", (e) => {
-      const n = e.target.closest(".node");
-      if (!n) return;
-      const id = n.dataset.id;
-      if (sel.includes(id)) sel = sel.filter((x) => x !== id);
-      else sel = sel.length >= 2 ? [sel[1], id] : [...sel, id];
-      render();
-    });
-    render();
+    sA.addEventListener("change", check); sB.addEventListener("change", check);
+    t2.addEventListener("click", (e) => { const n = e.target.closest(".node"); if (!n) return; const h = H[n.dataset.id]; (h.s === "M" ? sA : sB).value = n.dataset.id; check(); });
+    check();
   }
 
   /* ── PV heatmap canvas ── */
